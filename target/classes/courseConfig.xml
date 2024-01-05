@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<bean id="course" class="com.excelr.ioc.demo1.Course" lazy-init="true" scope="prototype">
+		<property name="courseId" value="Java001" />
+		<property name="courseName" value="Full Stack Java" />
+		<property name="courseType" value="Short Term" />
+		<property name="courseDuration" value="240" />
+		<property name="courseCost" value="50000" />
+	</bean>
+
+	<bean id="trainee" class="com.excelr.ioc.demo1.Trainee" lazy-init="true">
+		<constructor-arg index="0" value="1" />
+		<constructor-arg index="1" type="java.lang.String"
+			value="Srinivas" />
+		<constructor-arg index="2" type="java.lang.String"
+			value="Srinivas@123" />
+		<constructor-arg index="3" value="500090" />
+		<property name="course" ref="course" />
+	</bean>
+
+	<bean id="traineeNew" class="com.excelr.ioc.demo1.Trainee" lazy-init="true">
+		<constructor-arg index="0" value="2" />
+		<constructor-arg index="1" type="java.lang.String"
+			value="Moksha" />
+		<constructor-arg index="2" type="java.lang.String"
+			value="Jambi@123" />
+		<constructor-arg index="3" value="500090" />
+		<property name="course" ref="course" />
+	</bean>
+	
+</beans>
